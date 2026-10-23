@@ -33,7 +33,7 @@
         return;
       }
 
-      rows.push({ code: "ACOM-$"+ codeMatch[1], quantity });
+      rows.push({ code: "ACOM-"+ codeMatch[1], quantity });
     });
 
     if (rows.length > MAX_PRODUCTS) {
