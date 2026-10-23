@@ -14,7 +14,7 @@
       const line = rawLine.trim();
       if (!line) return;
 
-      const codeMatch = line.toUpperCase().match(/\bACOM-[A-Z0-9]+\b/);
+      const codeMatch = line.toUpperCase().match(/\bACOM\s*[-–—]\s*([A-Z0-9]+)\b/);
       const quantityMatch = line.match(/(?:^|[\s*_])x\s*(\d{1,4})(?=\s|\*|\||$)/i);
       const looksLikeProduct = Boolean(codeMatch || quantityMatch || /^✅/.test(line));
 
@@ -33,7 +33,7 @@
         return;
       }
 
-      rows.push({ code: codeMatch[0], quantity });
+      rows.push({ code: ACOM-${codeMatch[1]}, quantity });
     });
 
     if (rows.length > MAX_PRODUCTS) {
